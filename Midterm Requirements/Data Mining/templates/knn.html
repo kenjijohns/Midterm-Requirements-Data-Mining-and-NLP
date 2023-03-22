@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} KNN {% endblock %}</h1>
+
+<!-- Main Input For Receiving Query to our ML -->
+<form action="{{ url_for('knn_predict')}}"method="post">
+<div class="form-group">
+<br>
+<label for="exampleInputPassword1">Job Level Classification using KNN</label>
+    <!-- <input type="text" class="form-control" name="job" placeholder="Rate" required="required" /> -->
+    <br>
+    <!-- <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="pos_lvl">
+    <option selected>Input the Salary you want</option>
+    <option value="1">Junior</option>
+    <option value="2">Senior</option>
+    <option value="3">Project Manager</option>
+    <option value="4">CTO</option> -->
+    </select>
+    </div>
+<div class="form-group">
+<label for="exampleInputPassword1">Input Desired Salary</label>
+<input type="text" class="form-control" name="salary" placeholder="$" required="required" />
+</div>
+
+<div class="form-group">
+    <label for="exampleInputPassword1">Input Experience</label>
+    <input type="text" class="form-control" name="experience" placeholder="Years of Experience" required="required" />
+    </div>
+
+<button type="submit" class="btn btn-primary">Identify Job Level</button>
+</form>
+
+<br>
+<br>
+<label for="exampleInputPassword1"> </label>{{ prediction_text }} </label>
+
+{% endblock %}
